@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 #include "vec.cpp"
 using namespace std;
@@ -8,6 +9,7 @@ const double G = 6.67408 * pow(10.0, -20), //gravitational constant, km^3 / (kg 
    ZeroCelsius = 273.15, //absolute zero
    AtmosphereBoundary = 6523.1, //end of atmosphere
    SeaLevelAirDensity = 1225000000; // kg/km^3
+const double g = G * EarthMass / pow(EarthRadius, 2); //Acceleration of gravity.
 
 //rotation vector
 struct Rotation
@@ -31,7 +33,7 @@ struct ShipPosition
 //user's commands
 struct PartOfFlightPlan
 {
-    int delayTime; //delay time (must be a multiple of the size of quant)
+    double delayTime; //delay time (must be a multiple of the size of quant)
     double impulseValue; //fuel mass flow rate
     Rotation rotateValue; //moment of inertia
 };
